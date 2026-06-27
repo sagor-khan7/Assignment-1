@@ -75,3 +75,19 @@ function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
   }
   return result;
 }
+
+function calculateTotalPrice(
+  products: {
+    name: string;
+    price: number;
+    quantity: number;
+    discount?: number;
+  }[],
+): number {
+  return products.reduce((total, product) => {
+    const basePrice = product.price * product.quantity;
+    const discountPercentage = product.discount ?? 0;
+    const itemTotal = basePrice * (1 - discountPercentage / 100);
+    return total + itemTotal;
+  }, 0);
+}
