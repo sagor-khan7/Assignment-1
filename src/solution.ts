@@ -36,3 +36,8 @@ function filterByRating(
   return items.filter((item) => item.rating > 4);
 }
 
+function filterActiveUsers(
+  items: { id: number; name: string; email: string; isActive: boolean }[],
+): { id: number; name: string; email: string; isActive: boolean }[] {
+  return items.filter((item) => item.isActive);
+}
