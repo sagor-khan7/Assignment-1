@@ -54,3 +54,24 @@ function printBookDetails(value: Book): void {
     `Title: ${value.title}, Author: ${value.author}, Published: ${value.publishedYear}, Available: ${value.isAvailable ? "Yes" : "No"}`,
   );
 }
+
+function getUniqueValues<T extends string | number>(arr1: T[], arr2: T[]): T[] {
+  const mergedArray = [...arr1, ...arr2];
+  const result: T[] = [];
+
+  for (let i = 0; i < mergedArray.length; i++) {
+    const currentItem = mergedArray[i];
+    let isDuplicate = false;
+
+    for (let i = 0; i < result.length; i++) {
+      if (result[i] === currentItem) {
+        isDuplicate = true;
+        break;
+      }
+    }
+    if (!isDuplicate) {
+      result[result.length] = currentItem as T;
+    }
+  }
+  return result;
+}
