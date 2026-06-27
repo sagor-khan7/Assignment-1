@@ -9,3 +9,11 @@ function formatValue(
     return !value;
   }
 }
+
+function getLength(value: string | any[]): number {
+  if (typeof value === "string") {
+    return value.length;
+  } else {
+    return value.length;
+  }
+}
